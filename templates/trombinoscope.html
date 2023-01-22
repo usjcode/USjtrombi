@@ -115,32 +115,109 @@
 
       }
 
-
+      hr{
+        color:black;
+        height: 2px;
+      }
     </style>
 </head>
 <body>
     <main class="mw-100 mh-100">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white " style="width: 280px; background-color: black;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-              <span class="fs-4">USJTrombi</span>
-            </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-              {% for t in trombinoscopes%}
-              <li class="nav-item">
-                <a href="{% url "trombinoscope" t.year%}" class="nav-link {% if t.year == year %} active {%endif%}" aria-current="page">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                 {{t.year}}
-                </a>
-              </li>
-              {%endfor%}
-              <li>
-               
-            </ul>
-            <hr>
- 
-          </div>
+      <div class="d-flex flex-column flex-shrink-0 p-3 text-white " style="width: 280px; background-color: rgb(255, 255, 255); font-weight:400;">
+        <div class="w-55 " style="width:100%;height:30%; background-image:url({% static 'logo_isj_1.png'%});background-repeat:no-repeat;background-size:cover"></div> 
+         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+           <span class="fs-4" style="background:transparent; color:black;">USJTrombi</span>
+         </a>
+         <hr>
+         <ul class="nav nav-pills flex-column mb-auto">
+           <li class="nav-item">
+             <div class="btn-group dropend">
+               <button type="button" class="btn btn-secondary dropdown-toggle" style="width:100%; background:rgb(62, 122, 65);" data-bs-toggle="dropdown" aria-expanded="false">
+                 2022-2023
+               </button>
+               <ul class="dropdown-menu">
+                 {% for t in trombinoscopes%}
+                   <li >
+                     <a href="{% url "trombinoscope" t.year%}" style="text-decoration:none;" aria-current="page">
+                       <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                     {{t.year}}
+                     </a>
+                   </li>
+                 {%endfor%}
+               </ul>
+             </div>
+           </li>
+           
+           <hr>
+           <li class="nav-item">
+             <div class="btn-group dropend" style="width:100%;">
+               <a href="#" class="btn" style="width:100%;color: rgb(0, 60, 255); background: rgb(230, 230, 230); font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
+                 Staff
+               </a>
+             </div>
+           </li>
+           <br>
+           <li class="nav-item">
+             <div class="btn-group dropend" style="width:100%;">
+               <a href="#" class="btn dropdown-toggle" style="box-sizing: content-box; width:100%; background: rgb(0, 60, 255); color:white; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
+                 UISJ - Ingenieur
+               </a>
+               <ul class="dropdown-menu">
+                 <li class="nav-item">
+                   <div class="btn-group dropend" style="width:100%;">
+                     <a href="#" class="btn dropdown-toggle" style="box-sizing: content-box; width:100%; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
+                       Ingenieur
+                     </a>
+                     <ul class="dropdown-menu">
+                       <li class="nav-item"><h6 class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 1</h6></li>
+                       <li class="nav-item"><a href="#" class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 2</a></li>
+                     </ul>
+                   </div>
+                 </li>
+                 <li class="nav-item">
+                   <div class="btn-group dropend" style="width:100%;">
+                     <a href="#" class="btn dropdown-toggle" style="box-sizing: content-box; width:100%;font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
+                       Licence
+                     </a>
+                     <ul class="dropdown-menu">
+                       <li class="nav-item"><h6 class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 1</h6></li>
+                       <li class="nav-item"><a href="#" class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 2</a></li>
+                     </ul>
+                   </div>
+                 </li>
+                 <li>
+                   <div class="btn-group dropend" style="width:100%;">
+                     <a href="#" class="btn dropdown-toggle" style="box-sizing: content-box; width:100%; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
+                       Master
+                     </a>
+                     <ul class="dropdown-menu">
+                       <li class="nav-item"><h6 class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 1</h6></li>
+                       <li class="nav-item"><a href="#" class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 2</a></li>
+                     </ul>
+                   </div>
+                 </li>
+               </ul>
+             </div>
+           </li>
+           <br>
+           <li class="nav-item">
+             <div class="btn-group dropend" style="width:100%;">
+               <a href="#" class="btn dropdown-toggle" style="width:100%; background: rgb(255, 55, 29); color:white; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
+                 UISJ - management
+               </a>
+               <ul class="dropdown-menu center">
+                 <li class="nav-item"><a href="#" class="btn" style="width:100%;" aria-expanded="false">Niveau 1</a></li>
+                 <li class="nav-item"><a href="#" class="btn" style="width:100%;" aria-expanded="false">Niveau 2</a></li>
+                 <li class="nav-item"><a href="#" class="btn" style="width:100%;" aria-expanded="false">Niveau 3</a></li>
+               </ul>
+             </div>
+           </li>
+         </ul>
+         <hr>
+
+       </div>
+
 
           <div class="w-100 " style="background-image:url({% static '2308.jpg'%});background-repeat:no-repeat;background-size:cover">     
 
