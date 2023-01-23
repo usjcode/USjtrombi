@@ -5,121 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="{% static 'css/trombinoscope.css' %}">
     <title>trombinoscope de saint jean</title>
-
-    <style>
-
-
-        main
-        {
-            display: flex;
-            height: 100%;
-        }
-
-        .card-img
-        {
-          height: 100Px;
-          width: 100px;
-          border-radius: 50%;
-          border: 5px solid #000000;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: rgb(224, 224, 224);
-          position:relative
-        }
-
-        h2
-        {
-          font-size: 4rem!important;
-        }
-
-        h3
-        {
-          font-size : 3rem!important;
-        }
-
-        .card img {
-          min-height: 100%;
-          min-width: 100%;
-          transition: .3s ease-in-out;
-          width: auto;
-          height: auto;
-          display: block;
-          object-fit: cover;
-         
-      }
-      
-      
-      
-      .card
-      {
-          
-          height:300px;
-        border: none;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          padding: 1rem;
-          transition: 0.3s ease-in-out;
-          cursor: pointer;
-          border-radius: 0;
-          background-color: transparent;
-          
-      }
-      
-      h1
-      {
-        margin: auto;
-        font-size: 5rem;
-        color: #e9e9e9;
-      }
-      
-      .card h3 {
-          color: rgb(233, 233, 233);
-          font-weight: 400;
-          margin: 1rem 0 0.5rem;
-          font-size:1.4rem!important ;
-      }
-      
-      .card h4 {
-          color: white;
-          font-weight: 300;
-          opacity: 60%;
-          font-size: 1.3rem!important;
-      }
-
-      
-      .card:hover {
-
-          color: black!important;
-      }
-
-      .card:hover .card-img::after
-      {
-        position: absolute;
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-color: #00000083;
-      }
-
-      .card:hover h3
-      {
-        color: black!important;
-
-      }
-
-      hr{
-        color:black;
-        height: 2px;
-      }
-    </style>
 </head>
 <body>
     <main class="mw-100 mh-100">
@@ -134,7 +21,7 @@
            <li class="nav-item">
              <div class="btn-group dropend">
                <button type="button" class="btn btn-secondary dropdown-toggle" style="width:100%; background:rgb(62, 122, 65);" data-bs-toggle="dropdown" aria-expanded="false">
-                 2022-2023
+                 {{year}}
                </button>
                <ul class="dropdown-menu">
                  {% for t in trombinoscopes%}
@@ -160,56 +47,27 @@
            <br>
            <li class="nav-item">
              <div class="btn-group dropend" style="width:100%;">
-               <a href="#" class="btn dropdown-toggle" style="box-sizing: content-box; width:100%; background: rgb(0, 60, 255); color:white; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
+               <a href="#" class="btn btn-ingeneer dropdown-toggle" style="box-sizing: content-box; width:100%;  color:white; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
                  UISJ - Ingenieur
                </a>
                <ul class="dropdown-menu">
-                 <li class="nav-item">
-                   <div class="btn-group dropend" style="width:100%;">
-                     <a href="#" class="btn dropdown-toggle" style="box-sizing: content-box; width:100%; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
-                       Ingenieur
-                     </a>
-                     <ul class="dropdown-menu">
-                       <li class="nav-item"><h6 class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 1</h6></li>
-                       <li class="nav-item"><a href="#" class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 2</a></li>
-                     </ul>
-                   </div>
-                 </li>
-                 <li class="nav-item">
-                   <div class="btn-group dropend" style="width:100%;">
-                     <a href="#" class="btn dropdown-toggle" style="box-sizing: content-box; width:100%;font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
-                       Licence
-                     </a>
-                     <ul class="dropdown-menu">
-                       <li class="nav-item"><h6 class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 1</h6></li>
-                       <li class="nav-item"><a href="#" class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 2</a></li>
-                     </ul>
-                   </div>
-                 </li>
-                 <li>
-                   <div class="btn-group dropend" style="width:100%;">
-                     <a href="#" class="btn dropdown-toggle" style="box-sizing: content-box; width:100%; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
-                       Master
-                     </a>
-                     <ul class="dropdown-menu">
-                       <li class="nav-item"><h6 class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 1</h6></li>
-                       <li class="nav-item"><a href="#" class="btn dropdown-toggle" style="width:100%;" aria-expanded="false">Niveau 2</a></li>
-                     </ul>
-                   </div>
-                 </li>
+                {% for r in ingenieur.role_set.all %}
+                <li class="nav-item"><a href="{% url 'trombinoscope' year r.pk %} " class="btn" style="width:100%;" aria-expanded="false">{{r}}</a></li>
+                {% endfor %}
                </ul>
              </div>
            </li>
            <br>
            <li class="nav-item">
              <div class="btn-group dropend" style="width:100%;">
-               <a href="#" class="btn dropdown-toggle" style="width:100%; background: rgb(255, 55, 29); color:white; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
+               <a href="#" class="btn btn-management dropdown-toggle" style="width:100%;  color:white; font-size:20px; font-weight:600;" data-bs-toggle="dropdown" aria-expanded="false">
                  UISJ - management
                </a>
                <ul class="dropdown-menu center">
-                 <li class="nav-item"><a href="#" class="btn" style="width:100%;" aria-expanded="false">Niveau 1</a></li>
-                 <li class="nav-item"><a href="#" class="btn" style="width:100%;" aria-expanded="false">Niveau 2</a></li>
-                 <li class="nav-item"><a href="#" class="btn" style="width:100%;" aria-expanded="false">Niveau 3</a></li>
+
+                 {% for r in management.role_set.all %}
+                 <li class="nav-item"><a href="{% url 'trombinoscope' year r.pk %}" class="btn" style="width:100%;" aria-expanded="false">{{r}}</a></li>
+                 {% endfor %}
                </ul>
              </div>
            </li>
@@ -219,96 +77,25 @@
        </div>
 
 
-          <div class="w-100 " style="background-image:url({% static '2308.jpg'%});background-repeat:no-repeat;background-size:cover">     
+          <div class="w-100 " style="">     
 
-            <div id="carouselExampleControls" class="carousel slide "  data-bs-interval="false">
-              <div class="carousel-inner ">
+            <h1>{{year}}</h1>
+            {% block content %}
+            
+            {% endblock content %}
 
-            {% for c in  category%}
-            <div class="carousel-item  h-100 active">
-              <div class="h-100 d-flex w-100 align-items-center">
-                 <h1>{{c.name}}</h1>
-              </div>
-             
-            </div>
-            {%for r in c.role_set.all%}
-            <div class="carousel-item  h-100">
-              <div class="h-100 d-flex w-100 align-items-center">
-                 <h2 class="m-auto  text-white">{{r.name}}</h2>
-              </div>
-             
             </div>
             
-            {%for d in r.department_set.all%}
-            <div class="carousel-item  h-100 ">
-              <div class="h-100 d-flex w-100 align-items-center">
-                 <h3 class="m-auto text-white">{{d.name}}</h3>
-              </div>
-             
-            </div>
-            <div class="carousel-item     h-100" style="overflow-y: auto; overflow-x: hidden;">
-            <div class=" row gx-3 ">
-              
-            {% for m in d.member_set.all%}
-            {%if m in members%}
-            <button class="card   col-3" href=""  data-bs-toggle="modal" data-bs-target="#view{{m.id}}">
-              <div class="card-img">
-                <img src="{{m.photo.url}}" class="card-img-top" alt="...">
-              </div>
-
-              <h3 >{{m.firstname}}</h3>
-            </button>
-
-            <div class="modal fade" id="view{{m.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog bg-dark">
-                <div class="modal-content">
-
-                  <div class="modal-body" style="background-color: #000000;">
-                    <div class="container row">
-                    <img src="{{m.photo.url}}" alt="">
-                    <div class="d-flex flex-column fs-4  text-white">
-                      <span>nom : {{m.firstname}}</span>
-                      <span>prenom : {{m.lastname}}</span>
-                      {% if m.contact%}<span>contact : {{m.contact}}</span>{%endif%}
-                    </div>
-                    </div>
-                  
-                  </div>
             
-                </div>
-              </div>
-            </div>
-            
-            {%endif%}
           
 
-           {%endfor%}
            </div>
  
           </div>
 
 
-
-
-
-
-
-
-            {%endfor%}
-            
-   {%endfor%}
-   {%endfor%}
   </div>
 
-
-   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="text-dark carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="right: 20px;">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
 
            

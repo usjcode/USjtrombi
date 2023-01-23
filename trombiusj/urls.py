@@ -20,7 +20,8 @@ from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('trombinoscope.urls'))
+    path('', include('trombinoscope.urls')),
+    path('administration/', include('administration.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

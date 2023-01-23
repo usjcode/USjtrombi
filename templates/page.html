@@ -1,0 +1,11 @@
+{% extends 'trombinoscope.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for m in members %}
+
+{{m.photo.url}}
+{% endfor %}
+
+{% endblock content %}
