@@ -12,8 +12,8 @@
 	--dk-gray-900: #111827;
 	--dk-dark-bg: #313348;
 	--dk-darker-bg: #2a2b3d;
-	--navbar-bg-color: #6f6486;
-	--sidebar-bg-color: #252636;
+	--navbar-bg-color: #00b7ff;
+	--sidebar-bg-color: #121a20;
 	--sidebar-width: 250px;
 }
 
@@ -25,7 +25,7 @@
 
 body {
 	font-family: 'Inter', sans-serif;
-	background-color: var(--dk-darker-bg);
+	background-color: #F3F4F6;
 	font-size: .925rem;
 }
 
@@ -138,16 +138,6 @@ body {
 	transform: translateX(-270px);
 }
 
-@media (max-width: 767px) {
-	.sidebar ul > li {
-		padding-top: 12px;
-		padding-bottom: 12px;
-	}
-
-	.sidebar .search {
-		padding: 10px 0 10px 30px
-	}
-}
 
 
 
@@ -169,29 +159,26 @@ body {
 
 
 
-
-/** --------------------------------
- -- Statistics
--------------------------------- */
-.statistics {
-	color: var(--dk-gray-200);
+.member-img
+{
+	width: 156px;
+	height: 156px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.statistics .box {
-	background-color: var(--dk-dark-bg);
+.member-img img
+{
+	border: #525e74 4px solid;
+	border-radius: 50%;
+	min-width:100%;
+	min-height:100%;
+	height: auto;
+	width: auto;
+	object-fit: cover;
+
 }
-
-.statistics .box i {
-	width: 60px;
-	height: 60px;
-	line-height: 60px;
-}
-
-.statistics .box p {
-	color: var(--dk-gray-400);
-}
-
-
 
 
 
@@ -204,11 +191,11 @@ body {
 }
 
 .admins .box h3 {
-	color: var(--dk-gray-300);
+	color: #111
 }
 
 .admins .box p {
-	color: var(--dk-gray-400)
+	color: #333
 }
 
 
@@ -256,7 +243,7 @@ body {
 
 
 .main-color {
-	color: #07c5ff
+	color: #000000
 }
 
 /** --------------------------------

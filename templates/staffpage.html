@@ -2,10 +2,12 @@
 {% load static %}
 
 
-{% block pagetitle %}
-{{type.name}} ({{type.category.name}})
 
+{% block pagetitle %}
+personnel administratif
 {% endblock pagetitle %}
+
+
 {% block welcome %}
 
 {% endblock welcome %}
@@ -25,6 +27,7 @@
           </div>
           <div class="text-center">
             <h3 class="fs-5 mb-1">{{m.firstname}}</h3>
+            <p class="mb-0">{{m.role.name}}</p>
           </div>
         </div>
       </div>

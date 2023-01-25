@@ -28,7 +28,7 @@
   
   <ul class="categories list-unstyled">
     <li >
-      <i class="uil-estate fa-fw"></i><a href=""> Aministration </a></li>
+      <i class="uil-estate fa-fw"></i><a href="{% url 'staff' year %}"> Aministration </a></li>
     <li class="">
       <i class="uil-folder"></i><a href="#"> Etudiants</a>
     </li>
@@ -61,7 +61,10 @@
           <i class="uil-bars text-white"></i>
         </button>
         <a class="navbar-brand" href="#">Trombinoscope<span class="main-color"> {{year}}</span></a>
+
+
       </div>
+  
       <div class="collapse navbar-collapse" id="toggle-navbar">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
@@ -74,7 +77,11 @@
     </div>
   </nav>
 
+<div class="text-center mt-3">
 
+  <h2>        {% block pagetitle %}{% endblock pagetitle %}</h2>
+
+</div>
 
   {% block welcome %}
   <div class="p-4">
@@ -88,48 +95,6 @@
     </div>
   {% endblock welcome %} 
   {% block  content%}
-  
-
-
-    <section class="statistics mt-4">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
-            <i class="uil-estate fa-fw fs-2 text-center bg-primary rounded-circle"></i>
-            <div class="ms-3">
-              <div class="d-flex align-items-center">
-                <h3 class="mb-0">300</h3> <span class="d-block ms-2">Personnels</span>
-              </div>
-              <p class="fs-normal mb-0"> Administration </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
-            <i class="uil-users-alt fs-2 text-center bg-danger rounded-circle"></i>
-            <div class="ms-3">
-              <div class="d-flex align-items-center">
-                <h3 class="mb-0">600</h3> <span class="d-block ms-2">Etudiants</span>
-              </div>
-              <p class="fs-normal mb-0">Ingénieur</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="box d-flex rounded-2 align-items-center p-3">
-            <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"></i>
-            <div class="ms-3">
-              <div class="d-flex align-items-center">
-                <h3 class="mb-0">90</h3> <span class="d-block ms-2">Etudiants</span>
-              </div>
-              <p class="fs-normal mb-0">Management</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    
 
     <section class="admins mt-4">
       <div class="row g-4">
@@ -138,16 +103,16 @@
         <div class="col-md-6">
           <div class="box">
     
-            <div class="admin d-flex align-items-center rounded-2 p-3">
-              <div class="img">
-                <img class="img-fluid rounded-pill"
-                     width="75" height="75"
-                     src="{{m.photo.url}}"
+            <div class="member d-flex flex-column align-items-center rounded-2 p-3">
+              <div class="member-img">
+                <img class="" src="{{m.photo.url}}"
                      alt="admin">
               </div>
-              <div class="ms-3">
+              <div class=" text-center">
                 <h3 class="fs-5 mb-1">{{m.firstname}}</h3>
                 <p class="mb-0">{{m.role.name}}</p>
+
+        
               </div>
             </div>
           </div>
